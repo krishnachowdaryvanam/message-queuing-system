@@ -32,7 +32,7 @@ func InitializeDatabase() (*sql.DB, error) {
 }
 
 func createTablesIfNotExist(db *sql.DB) error {
-	// Define SQL statements to create tables if they don't exist
+
 	createUsersTableSQL := `
 	CREATE TABLE IF NOT EXISTS Users (
 		id SERIAL PRIMARY KEY,
@@ -94,7 +94,7 @@ func UserExists(db *sql.DB, userID int) error {
 }
 
 func InsertProduct(db *sql.DB, ProductName string, ProductDescription string, ProductPrice float64, productImages []string) (int64, error) {
-	// Join the product images into a comma-separated string
+
 	productImagesStr := strings.Join(productImages, ",")
 
 	// Insert the product into the database

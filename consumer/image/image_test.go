@@ -26,7 +26,7 @@ func TestDownloadImage(t *testing.T) {
 	}{
 		{
 			name:    "valid image URL",
-			args:    args{imageURL: "https://raw.githubusercontent.com/harikrishnanum/products/main/jbl.jpg"},
+			args:    args{imageURL: "https://raw.githubusercontent.com/krishnachowdaryvanam/products/main/Iphone13.jpg"},
 			wantErr: false,
 		},
 		{

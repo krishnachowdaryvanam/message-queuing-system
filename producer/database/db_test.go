@@ -9,14 +9,13 @@ import (
 )
 
 func TestInsertProduct(t *testing.T) {
-	// Set up a test database
+
 	testDB, err := sql.Open("postgres", ":memory:")
 	if err != nil {
 		t.Fatalf("Error opening test database: %v", err)
 	}
 	defer testDB.Close()
 
-	// Create the Products table
 	_, err = testDB.Exec(`
         CREATE TABLE Products (
             id SERIAL PRIMARY KEY,
@@ -31,14 +30,12 @@ func TestInsertProduct(t *testing.T) {
 		t.Fatalf("Error creating Products table: %v", err)
 	}
 
-	// Call the function to insert a product into the test database
 	productImages := []string{"image1.jpg", "image2.jpg"}
 	productID, err := InsertProduct(testDB, "Test Product", "A test product", 9.99, productImages)
 	if err != nil {
 		t.Fatalf("Error inserting product: %v", err)
 	}
 
-	// Check that the product was inserted with the correct values
 	var productName, productDescription, productImagesStr string
 	var productPrice float64
 	var createdAt time.Time

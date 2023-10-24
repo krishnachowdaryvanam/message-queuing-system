@@ -19,7 +19,7 @@ func main() {
 	}
 	defer db.Close()
 
-	queue := "products" // Set the queue name directly in your code
+	queue := "products"
 
 	conn, err := message.NewRMQ()
 	if err != nil {
@@ -35,10 +35,10 @@ func main() {
 	}
 	defer ch.Close()
 
-	// Define the Gin router
+	//Gin router
 	router := gin.Default()
 
-	// Define the route to receive the product data
+	//route to receive the product data
 	router.POST("/products", handlers.SaveProduct(db, ch, queue))
 
 	// Start the Gin server

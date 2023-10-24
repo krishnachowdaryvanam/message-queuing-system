@@ -15,7 +15,7 @@ func NewRMQ() (*amqp.Connection, error) {
 	rmqPassword := "guest"
 	rmqVHost := "/"
 
-	// Define the RabbitMQ connection URL
+	//RabbitMQ connection URL
 	rmqURL := fmt.Sprintf("amqp://%s:%s@%s:%s%s", rmqUser, rmqPassword, rmqHost, rmqPort, rmqVHost)
 
 	conn, err := amqp.Dial(rmqURL)

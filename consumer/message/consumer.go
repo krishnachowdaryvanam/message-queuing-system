@@ -72,7 +72,7 @@ func Consumer(ch *amqp.Channel, queue string, db *sql.DB, image_quality int) {
 		for d := range msgs {
 			product_id_str := string(d.Body)
 			logrus.Info("Received message: ", product_id_str)
-			// Spawn a new goroutine to process the message
+
 			go func(product_id_str string) {
 				product_id, err := strconv.Atoi(product_id_str)
 				if err != nil {
